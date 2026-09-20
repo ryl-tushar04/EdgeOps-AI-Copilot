@@ -14,6 +14,13 @@ The platform is built entirely on the Cloudflare edge ecosystem, ensuring minima
 4. **AI Inference (Cloudflare Workers AI):** The Worker constructs a highly context-aware prompt array (System Instructions + DO History + Telemetry + User Query) and invokes the `@cf/meta/llama-3.3-70b-instruct-fp8-fast` model.
 5. **Response Cycle:** The generated remediation steps are synchronously appended to the Durable Object state and returned to the frontend client for rendering.
 
+## Assignment Requirements Mapping
+This project was built to satisfy the core requirements of the Cloudflare AI-powered application assignment:
+1. **LLM:** Utilizes **Llama 3.3 (`@cf/meta/llama-3.3-70b-instruct-fp8-fast`)** natively hosted on Cloudflare Workers AI.
+2. **Workflow / Coordination:** Utilizes **Cloudflare Workers** as the primary routing and coordination layer to broker requests between the UI, health checks, and stateful objects.
+3. **User Input:** Features a responsive, chat-based terminal UI built in React/Vite, deployed on **Cloudflare Pages**.
+4. **Memory or State:** Implements **Cloudflare Durable Objects** (`IncidentSession.ts`) to provide transactional, stateful memory that persists conversational history across stateless Worker invocations.
+
 ## Key Features
 * **Context-Aware Log Analysis:** Dynamically parses complex stack traces and correlates them with current cluster degradation states (e.g., latency spikes in the `auth-gateway`).
 * **Edge-Native Stateful Memory:** Utilizes Durable Objects to maintain continuous incident session context, allowing SREs to iteratively debug ongoing outages without losing context.
