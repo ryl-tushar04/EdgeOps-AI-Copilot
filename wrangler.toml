@@ -1,0 +1,17 @@
+name = "incident-copilot"
+main = "src/index.ts"
+compatibility_date = "2024-04-05"
+
+# Bind Cloudflare Workers AI
+[ai]
+binding = "AI"
+
+# Bind Durable Object named IncidentSession
+[[durable_objects.bindings]]
+name = "INCIDENT_SESSION"
+class_name = "IncidentSession"
+
+# Durable Object migrations for deployment
+[[migrations]]
+tag = "v1"
+new_classes = ["IncidentSession"]
