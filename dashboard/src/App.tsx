@@ -109,7 +109,7 @@ function App() {
       <div className="w-1/2 h-full flex flex-col border-r border-infra-border bg-infra-panel">
         <header className="p-4 border-b border-infra-border flex justify-between items-center bg-black/40">
           <h1 className="font-bold text-infra-accent tracking-widest uppercase">
-            InfraOps AI Copilot
+            EdgeOps AI Copilot
           </h1>
           <span className="text-xs text-gray-500">SESSION: {sessionId}</span>
         </header>
